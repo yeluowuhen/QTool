@@ -46,7 +46,7 @@ public class LocalClient extends BaseClient {
 
     @Override
     public boolean downloadFile(ShareParam shareParam, String sourceFilePath, String targetFilePath) throws IOException {
-        if(!new File(formatPath(shareParam.getBasePath(), sourceFilePath)).exists()){
+        if (!new File(formatPath(shareParam.getBasePath(), sourceFilePath)).exists()) {
             throw new FileNotFoundException("源文件不存在");
         }
         FileUtils.copyFile(new File(formatPath(shareParam.getBasePath(), sourceFilePath)), new File(targetFilePath));
@@ -55,7 +55,7 @@ public class LocalClient extends BaseClient {
 
     @Override
     public String readFileToString(ShareParam shareParam, String filePath, String encoding) throws IOException {
-        if(!new File(formatPath(shareParam.getBasePath(), filePath)).exists()){
+        if (!new File(formatPath(shareParam.getBasePath(), filePath)).exists()) {
             throw new FileNotFoundException("源文件不存在");
         }
         return FileUtils.readFileToString(new File(formatPath(shareParam.getBasePath(), filePath)), encoding);
@@ -63,7 +63,7 @@ public class LocalClient extends BaseClient {
 
     @Override
     public List<String> readLines(ShareParam shareParam, String filePath, String encoding) throws IOException {
-        if(!new File(formatPath(shareParam.getBasePath(), filePath)).exists()){
+        if (!new File(formatPath(shareParam.getBasePath(), filePath)).exists()) {
             throw new FileNotFoundException("源文件不存在");
         }
         return FileUtils.readLines(new File(formatPath(shareParam.getBasePath(), filePath)), encoding);
@@ -71,7 +71,7 @@ public class LocalClient extends BaseClient {
 
     @Override
     public void readFileByStream(ShareParam shareParam, String filePath, Consumer<InputStream> consumer) throws IOException {
-        if(!new File(formatPath(shareParam.getBasePath(), filePath)).exists()){
+        if (!new File(formatPath(shareParam.getBasePath(), filePath)).exists()) {
             throw new FileNotFoundException("源文件不存在");
         }
         InputStream inputStream = null;
@@ -109,11 +109,12 @@ public class LocalClient extends BaseClient {
 
     /**
      * 格式化拼接文件路径
+     *
      * @param basePath 文件基础路径
      * @param filePath 文件路径
      * @return 输出全路径
      */
-    private String formatPath(String basePath, String filePath){
+    private String formatPath(String basePath, String filePath) {
         return basePath + File.separator + filePath;
     }
 

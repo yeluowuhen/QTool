@@ -26,6 +26,7 @@ public enum ShareTypeEnum {
 
     /**
      * 根据字符串获取枚举对象
+     *
      * @param str 字符串
      * @return 枚举值
      */

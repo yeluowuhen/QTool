@@ -50,10 +50,10 @@ public class FtpClient extends BaseClient {
         // 设置以字节流传输模式
         ftpClient.setFileType(FTPClient.BINARY_FILE_TYPE);
         // 开启服务器对UTF-8的支持，如果服务器支持就用UTF-8，否则就用本地编码
-        if (FTPReply.isPositiveCompletion(ftpClient.sendCommand("OPTS UTF8", "ON"))
-                && !"UTF-8".equalsIgnoreCase(LOCAL_CHARSET)) {
-            LOCAL_CHARSET = "UTF-8";
-
+        if (FTPReply.isPositiveCompletion(ftpClient.sendCommand("OPTS UTF8", "ON"))) {
+            if (!"UTF-8".equalsIgnoreCase(LOCAL_CHARSET)) {
+                LOCAL_CHARSET = "UTF-8";
+            }
         } else if (!"GBK".equalsIgnoreCase(LOCAL_CHARSET)) {
             LOCAL_CHARSET = "GBK";
         }
@@ -76,16 +76,18 @@ public class FtpClient extends BaseClient {
             try {
                 ftpClient.logout();
                 ftpClient.disconnect();
+
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
+
     }
 
 
     @Override
     public boolean hasFile(ShareParam shareParam, String filePath) throws IOException {
-        boolean flag = false;
+        boolean flag;
         FTPClient ftpClient = openFtpClient(shareParam);
         try {
             flag = hasFile(ftpClient, formatFtpPath(shareParam.getBasePath(), filePath));
@@ -339,6 +341,7 @@ public class FtpClient extends BaseClient {
         } finally {
             IOUtils.closeQuietly(outputStream);
             closeFtpClient(ftpClient);
+
         }
     }
 

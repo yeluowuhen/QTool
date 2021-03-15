@@ -37,7 +37,7 @@ public class ShareFileUtil {
      * 判断文件是否存在
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
+     * @param filePath   文件路径
      * @return 是否存在
      * @throws IOException IO异常
      */
@@ -48,7 +48,7 @@ public class ShareFileUtil {
     /**
      * 获取文件并将文件下载到缓存位置
      *
-     * @param shareParam 共享设置
+     * @param shareParam   共享设置
      * @param filePath     文件路径
      * @param tempFilePath 缓存文件地址
      * @return 是否存在
@@ -68,7 +68,7 @@ public class ShareFileUtil {
      * 删除文件
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
+     * @param filePath   文件路径
      * @return 执行状态
      * @throws IOException IO异常
      */
@@ -79,7 +79,7 @@ public class ShareFileUtil {
     /**
      * 上传文件
      *
-     * @param shareParam   共享设置
+     * @param shareParam     共享设置
      * @param sourceFilePath 上传文件路径
      * @param targetFilePath 存放路径
      * @throws IOException IO异常
@@ -91,7 +91,7 @@ public class ShareFileUtil {
     /**
      * 下载文件
      *
-     * @param shareParam   共享设置
+     * @param shareParam     共享设置
      * @param sourceFilePath 下载文件路径
      * @param targetFilePath 存放路径
      * @throws IOException IO异常
@@ -105,8 +105,8 @@ public class ShareFileUtil {
      * 读取文件写入到字符串
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
-     * @param encoding     文件编码
+     * @param filePath   文件路径
+     * @param encoding   文件编码
      * @return 文件字符串
      * @throws IOException IO异常
      */
@@ -118,8 +118,8 @@ public class ShareFileUtil {
      * 按行读取文件到列表中
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
-     * @param encoding     文件编码
+     * @param filePath   文件路径
+     * @param encoding   文件编码
      * @return 文件数据列表
      * @throws IOException IO异常
      */
@@ -131,8 +131,8 @@ public class ShareFileUtil {
      * 流式读取文件
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
-     * @param consumer     读取操作
+     * @param filePath   文件路径
+     * @param consumer   读取操作
      * @throws IOException IO异常
      */
     public static void readFileByStream(ShareParam shareParam, String filePath, Consumer<InputStream> consumer) throws IOException {
@@ -143,9 +143,9 @@ public class ShareFileUtil {
      * 写入字符串到指定文件
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
-     * @param encoding     文件编码
-     * @param data         字符串
+     * @param filePath   文件路径
+     * @param encoding   文件编码
+     * @param data       字符串
      * @throws IOException IO异常
      */
     public static void writeStringToFile(ShareParam shareParam, String filePath, String encoding, String data) throws IOException {
@@ -156,9 +156,9 @@ public class ShareFileUtil {
      * 写入字符串列表到指定文件
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
-     * @param encoding     文件编码
-     * @param lines        字符串列表
+     * @param filePath   文件路径
+     * @param encoding   文件编码
+     * @param lines      字符串列表
      * @throws IOException IO异常
      */
     public static void writeLines(ShareParam shareParam, String filePath, String encoding, List<String> lines) throws IOException {
@@ -169,8 +169,8 @@ public class ShareFileUtil {
      * 流式写入文件
      *
      * @param shareParam 共享设置
-     * @param filePath     文件路径
-     * @param consumer     写入操作
+     * @param filePath   文件路径
+     * @param consumer   写入操作
      * @throws IOException IO异常
      */
     public static void writeLinesByStream(ShareParam shareParam, String filePath, Consumer<OutputStream> consumer) throws IOException {

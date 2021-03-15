@@ -107,7 +107,6 @@ public class SmbClient extends BaseClient {
     }
 
     private void deleteDir(SmbFile smbFile) throws IOException {
-        System.out.println(smbFile.getName() + "  " + smbFile.isDirectory());
         for (SmbFile file : smbFile.listFiles()) {
             if (file.isDirectory()) {
                 deleteDir(file);
@@ -233,7 +232,7 @@ public class SmbClient extends BaseClient {
     @Override
     public void writeStringToFile(ShareParam shareParam, String filePath, String encoding, String data) throws IOException {
         // 定义流
-         BufferedOutputStream outputStream = null;
+        BufferedOutputStream outputStream = null;
         //连接共享初始化
         SmbFile smbFile = smbInit(shareParam, filePath);
         try {
